@@ -1,6 +1,7 @@
 import requests
 import streamlit as st
 from genai_to_google import run_genai_to_google
+import os
 
 
 def fetch_place_details(api_key, place_id):
@@ -26,7 +27,7 @@ def api():
     json_data = run_genai_to_google()
 
     # Retrieve the API key from environment variables
-    api_key = 'AIzaSyBKjWUZf6O_G7w5Jxo5KsO0H2NXEvzAfcM'
+    api_key = os.environ['GOOGLEMAPS_API_KEY']
 
     if not api_key:
         st.error("API key not found")
